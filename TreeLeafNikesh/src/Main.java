@@ -3,12 +3,10 @@ public class Main {
     public static int maxSumIS(int[] arr, int n) {
         int[] msis = new int[n];
 
-        // Initialize msis values for all indexes
         for (int i = 0; i < n; i++) {
             msis[i] = arr[i];
         }
 
-        // Compute maximum sum values in bottom-up manner
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (arr[i] > arr[j] && msis[i] < msis[j] + arr[i]) {
@@ -17,7 +15,6 @@ public class Main {
             }
         }
 
-        // Find maximum value in msis array
         int max = msis[0];
         for (int i = 1; i < n; i++) {
             if (msis[i] > max) {
